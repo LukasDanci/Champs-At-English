@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Prices - Champs At English</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #EDE7F6; /* Light purple background */
+            color: #333;
+            font-family: 'Comic Sans MS', sans-serif; /* Fun and child-friendly font */
+            margin: 0;
+            padding: 0;
+	    background-image: url('background.png');
+             background-size: fit;
+  	     background-repeat: no-repeat;
+   	     background-position: center;
+    	     opacity: 0.9; /* Adjust transparency here */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #7B1FA2; /* Purple header */
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+
+        /* Navigation Bar Styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #FF9800; /* Bright orange navigation bar */
+            padding: 10px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #FFD54F; /* Lighter orange on hover */
+            color: #333;
+            border-radius: 10px;
+        }
+
+        /* Main Section Styles */
+        section {
+            text-align: center;
+            margin: 50px 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #7B1FA2; /* Purple border */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #7B1FA2; /* Purple table header */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFCC80; /* Light orange for even rows */
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFE0B2; /* Lighter orange for odd rows */
+        }
+
+        /* Full Package Text Styles */
+        .full-package {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4A148C;
+            margin-top: 20px;
+        }
+
+        /* Footer Styles */
+         footer {
+    background-color: #7B1FA2; /* Same purple as header */
+    color: white;
+    text-align: center;
+    padding: 5px 5px; /* More padding for a balanced look */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	}
+
+	footer h3 {
+ 	   margin: 10px 0 5px 0; /* Adjust spacing around headings */
+	}
+
+	footer p {
+  	  margin: 5px 0;
+	}
+
+	.social-icons {
+ 	   display: flex;
+  	  justify-content: center;
+  	  align-items: center;
+  	  margin-top: 10px;
+	}
+
+	.social-icons a {
+  	  margin: 0 10px;
+   	 transition: transform 0.3s ease;
+	}
+
+	.social-icons a:hover {
+ 	   transform: scale(1.1);
+	}
+
+	.social-icons img {
+   	 width: 30px;
+   	 height: 30px;
+   	 border-radius: 50%;
+   	 transition: opacity 0.3s ease;
+	}
+
+	.social-icons img:hover {
+   	 opacity: 0.8; /* Slight fade on hover */
+	}
+	#languageDropdown {
+            position: absolute;
+            top: 40px;
+            right: 100px;
+            background-color: #FFFF00;
+            padding: 10px;
+            border-radius: 5px;
+        }
+	#languageDropdown select {
+            padding: 5px;
+            font-size: 16px;
+            color: white;
+            background-color:#FF9800 ;
+            border: none;
+            cursor: pointer;
+        }
+        #languageDropdown select option {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+	<img src="book.png" alt="Fun Learning Image" style="height: 100px; float: left; margin-right: 15px;">
+    <img src="kid.png" alt="kid" style="height: 100px; float: right; margin-right: 15px;">
+    <h1>Champs At English - Courses & Pricing </h1>
+	
+	<!-- Language Dropdown -->
+    <div id="languageDropdown">
+        <select onchange="translatePage(this.value)">
+            <option value="">Select Language</option>
+            <option value="zh-CN">Chinese</option>
+            <option value="ko">Korean</option>
+            <option value="ja">Japanese</option>
+            <option value="vi">Vietnamese</option>
+            <option value="ro">Romanian</option>
+        </select>
+	</div>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+         <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/site.html">Home</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/course.html">Courses</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/Contact.html">Contact</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/about.html">About Us</a></li>
+	<li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/quiz.html">Quiz</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content Section -->
+<section>
+    <p class="full-package"> Every lesson will be held online on Zoom. <br>No more than 4 children will join the class simultaneously.<br> Go to the contact page or find us on Instagram, Facebook, Tiktok in order to schedule a meeting!</p>
+	<br>
+    <table>
+        <thead>
+            <tr>
+                <th>Title of Course</th>
+                <th>Duration of the lesson</th>
+                <th>About</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1. Interactive Alphabet</td>
+                <td>40 min</td>
+                <td>Learn the alphabet through phonics and pronunciation with our teacher! (24 lessons)</td>
+                <td> 7 euro / 35 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>2. Reading practice - Single sound families of words</td>
+                <td>40 min</td>
+                <td>How to put sounds together to make words. Improve your reading skills! (15 lessons)</td>
+                <td> 7 euro / 35 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>3. Improve your vocabulary</td>
+                <td>40 min</td>
+                <td>Learn new words through flashcards and stories. Lessons are designed by themes (20 lessons)</td>
+                <td> 7 euro / 35 lei (per lesson)</td>
+            </tr>
+	    <tr>
+                <td>4. Two letter sound</td>
+                <td>45 min</td>
+                <td>Improve your vocabulary with the double letter words, like cuddle or cookie, helping you in future! (12 lessons)</td>
+                <td> 10 euro / 35 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>5. Magic E!</td>
+                <td>45 min</td>
+                <td>Learn different ways of writing double sounds! (10 lessons) </td>
+                <td>10 euro / 50 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>6. Multiple letter sounds</td>
+                <td>45 min</td>
+                <td>Improve your speaking and pronunciation skills by learning to read groups of letters like "igh" and so on. (10 lessons)</td>
+                <td>10 euro / 50 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>7. Reading practice</td>
+                <td>45 min</td>
+                <td>Practice your reading skill with our teacher! (20 lessons)</td>
+                <td>10 euro / 50 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>8. Usual sight words</td>
+                <td>45 min</td>
+                <td>These are the words like 'I', 'the' and so on. (15 lessons)</td>
+                <td>10 euro / 50 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>9. Writing for Beginners</td>
+                <td>50 min</td>
+                <td>Practice writing basic sentences and short texts. (10 lessons) </td>
+                <td>12 euro / 60 lei (per lesson)</td>
+            </tr>
+            <tr>
+                <td>10. Spelling & Vocabulary</td>
+                <td>50 min</td>
+                <td>Improve your writing skills! (20 lessons) </td>
+                <td>12 euro / 60 lei (per lesson)</td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+
+<h1> Packages! </h1>
+<h2> Courses 1-3: 350 euro / 1750 lei </h2>
+<h2> Courses 4-8: 530 euro / 2650 lei </h2>
+<h2> Courses 9-10: 240 euro / 1200 lei </h2>
+<h1> Full package is 1200 euro / 6000 lei </h1>
+
+    <!-- Full Package Information -->
+  <br>
+<br>
+</section>
+
+<!-- Google Translate -->
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'ro'}, 'google_translate_element');
+    }
+
+    function translatePage(language) {
+        var googleTranslateElement = document.querySelector('select.goog-te-combo');
+        if (googleTranslateElement) {
+            googleTranslateElement.value = language;
+            googleTranslateElement.dispatchEvent(new Event('change'));
+        }
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Footer Section -->
+<footer>
+    <p>© 2024 Champs At English. All rights reserved.</p>
+	<div class="social-icons">
+        <p><strong>Follow us:</strong></p>
+        <a href="https://www.instagram.com/exampleID" target="blank">
+            <img src="instagram.png" alt="Instagram Icon">
+        </a>
+        <a href="https://www.facebook.com/exampleID" target="blank">
+            <img src="facebook.png" alt="Facebook Icon">
+        </a>
+        <a href="https://www.tiktok.com/exampleID" target="blank">
+            <img src="tiktok.png" alt="TikTok Icon">
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

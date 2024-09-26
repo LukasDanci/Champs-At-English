@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Time - Champs At English</title>
+    <style>
+        body {
+   	     background-color: #EDE7F6; /* Light purple background */
+   	     color: #333;
+    	     font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
+    	     margin: 0;
+	     padding: 0;
+	     background-image: url('background.png');
+             background-size: fit;
+  	     background-repeat: no-repeat;
+   	     background-position: center;
+    	     opacity: 0.9; /* Adjust transparency here */
+	}	
+
+        header {
+            background-color: #7B1FA2; /* Deep purple header */
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+	    
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #FF9800; /* Bright orange navigation bar */
+            padding: 10px;
+        }
+        nav ul li {
+            margin: 0px 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #FFD54F; /* Lighter orange on hover */
+            color: #333;
+            border-radius: 10px;
+        }
+        section {
+   		 text-align: center;
+   		 margin: 50px 20px;
+    		
+}
+
+        .quiz-container {
+            background-color: #C8E6C9; /* Light green background for quizzes */
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #7B1FA2; /* Purple button */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #4A148C; /* Darker purple on hover */
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        img {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+            margin-bottom: 15px;
+        }
+	 footer {
+    background-color: #7B1FA2; /* Same purple as header */
+    color: white;
+    text-align: center;
+    padding: 1px 1px; /* More padding for a balanced look */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	}
+
+	footer h3 {
+ 	   margin: 10px 0 5px 0; /* Adjust spacing around headings */
+	}
+
+	footer p {
+  	  margin: 3px 0;
+	}
+
+	.social-icons {
+ 	   display: flex;
+  	  justify-content: center;
+  	  align-items: center;
+  	  margin-top: 10px;
+	}
+
+	.social-icons a {
+  	  margin: 0 10px;
+   	 transition: transform 0.3s ease;
+	}
+
+	.social-icons a:hover {
+ 	   transform: scale(1.1);
+	}
+
+	.social-icons img {
+   	 width: 30px;
+   	 height: 30px;
+   	 border-radius: 50%;
+   	 transition: opacity 0.3s ease;
+	}
+
+	.social-icons img:hover {
+   	 opacity: 0.8; /* Slight fade on hover */
+	}
+    </style>
+</head>
+<body>
+
+<header>
+	<img src="book.png" alt="Fun Learning Image" style="height: 100px; float: left; margin-right: 15px;">
+	<img src="kid.png" alt="kid" style="height: 100px; float: right; margin-right: 15px;">
+    
+    <h1>Champs At English - Quiz time! </h1>
+</header>
+
+<nav>
+    <ul> 
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/site.html">Home</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/course.html">Courses</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/Contact.html">Contact</a></li>
+        <li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/about.html">About Us</a></li>
+	<li><a href="file:///C:/Users/Lucas's%20PC/Desktop/English_for_fun/quiz.html">Quiz</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Choose Your Quiz</h2>
+    <button onclick="startQuiz('multipleChoice1')">Multiple Choice Quiz #1 - First course </button>
+    <button onclick="startQuiz('multipleChoice2')">Multiple Choice Quiz #2 - Second course </button>
+    <button onclick="startQuiz('multipleChoice3')">Multiple Choice Quiz #3 - Third course</button>
+    <button onclick="startQuiz('fillInTheBlank1')">Fill in the Blank Quiz #1 - Fourth course </button>
+    <button onclick="startQuiz('fillInTheBlank2')">Fill in the Blank Quiz #2 - Fifth course </button>
+    <button onclick="startQuiz('fillInTheBlank3')">Fill in the Blank Quiz #3 - Sixth course </button>
+    <button onclick="startQuiz('trueFalse1')">True/False Quiz #1 - Seventh course </button>
+    <button onclick="startQuiz('fillInTheBlank4')">Fill in the Blank Quiz #4 - Eighth course </button>
+    <button onclick="startQuiz('fillInTheBlank5')">Fill in the Blank Quiz #5 - Nineth course </button>
+    <button onclick="startQuiz('fillInTheBlank6')">Fill in the Blank Quiz #6 - Tenth course </button>
+    
+    <div id="quizContainer" class="quiz-container" style="display: none;">
+        <div id="questionContainer"></div>
+        <button id="nextButton" style="display: none;" onclick="nextQuestion()">Next</button>
+        <p id="result"></p>
+<br>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+
+
+
+<footer>
+    <p>© 2024 Champs At English. All rights reserved.</p>
+	<!-- Social Media Section -->
+    <div class="social-icons">
+        <p><strong>Follow us:</strong></p>
+        <a href="https://www.instagram.com/exampleID" target="blank">
+            <img src="instagram.png" alt="Instagram Icon">
+        </a>
+        <a href="https://www.facebook.com/exampleID" target="blank">
+            <img src="facebook.png" alt="Facebook Icon">
+        </a>
+        <a href="https://www.tiktok.com/exampleID" target="blank">
+            <img src="tiktok.png" alt="TikTok Icon">
+        </a>
+    </div>
+</footer>
+
+<script>
+    let currentQuiz = [];
+    let currentQuestionIndex = 0;
+
+    function startQuiz(type) {
+        currentQuestionIndex = 0;
+        const quizContainer = document.getElementById('quizContainer');
+        const questionContainer = document.getElementById('questionContainer');
+        const resultContainer = document.getElementById('result');
+        quizContainer.style.display = 'block';
+        resultContainer.innerText = '';
+
+        if (type === 'multipleChoice1') {
+            currentQuiz = [
+                {
+                    question: "What is the first letter of this fruit?",
+                    answers: ["a", "e", "i", "o"],
+                    correct: "a",
+                    image: "apple.png"
+                },
+                {
+                    question: "What is the first letter of this animal?",
+                    answers: ["b", "a", "u", "i"],
+                    correct: "b",
+                    image: "bee.png"
+                },
+		{
+                    question: "What is the first letter of this animal?",
+                    answers: ["t", "e", "a", "c"],
+                    correct: "c",
+                    image: "cat.jpg"
+                },
+		{
+                    question: "What is the first letter of this animal?",
+                    answers: ["g", "o", "d", "e"],
+                    correct: "d",
+                    image: "dog.png"
+                },
+		 {
+                    question: "What is the first letter of this animal?",
+                    answers: ["f", "i", "s", "h"],
+                    correct: "f",
+                    image: "fish.png"
+                },
+		 {
+                    question: "What is the first letter of this animal?",
+                    answers: ["o", "g", "a", "y"],
+                    correct: "g",
+                    image: "goat.png"
+                },
+		{
+                    question: "What is the first letter of this object?",
+                    answers: ["e", "z", "t", "h"],
+                    correct: "h",
+                    image: "hat.png"
+                },
+		{
+                    question: "What is the first letter of this object?",
+                    answers: ["i", "t", "c", "d"],
+                    correct: "i",
+                    image: "ice.png"
+                },
+		{
+                    question: "What is the first letter of this object?",
+                    answers: ["x", "p", "t", "r"],
+                    correct: "p",
+                    image: "pencil.png"
+                },
+	     ];
+        } else if(type === 'multipleChoice3') {
+            currentQuiz = [
+                {
+                    question: "What is this?",
+                    answers: ["school", "dress", "yellow"],
+                    correct: "school",
+                    image: "school.png"
+                },
+                {
+                    question: "What is the word?",
+                    answers: ["mall", "fall"],
+                    correct: "fall",
+                    image: "fall.png"
+                },
+		{
+                    question: "Choose the correct word:",
+                    answers: ["ball", "call"],
+                    correct: "ball",
+                    image: "ball.png"
+                },
+		{
+                    question: "Choose the correct word:",
+                    answers: ["bell", "grass",],
+                    correct: "grass",
+                    image: "grass.png"
+                },
+		 {
+                    question: "Choose the correct word:",
+                    answers: ["wall", "small"],
+                    correct: "wall",
+                    image: "wall.png"
+                },
+		 {
+                    question: "Choose the correct word:",
+                    answers: ["wall", "bell"],
+                    correct: "bell",
+                    image: "bell.png"
+                }
+	     ];
+ 	  } else if(type === 'multipleChoice2') {
+            currentQuiz = [
+                {
+                    question: "How do you write this color?",
+                    answers: ["black", "crack"],
+                    correct: "black",
+                    image: "black.png"
+                },
+                {
+                    question: "Choose the correct word:",
+                    answers: ["wheel", "steel"],
+                    correct: "wheel",
+                    image: "wheel.png"
+                },
+		{
+                    question: "Choose the correct word:",
+                    answers: ["dad", "sad"],
+                    correct: "dad",
+                    image: "dad.png"
+                },
+		{
+                    question: "Choose the correct word:",
+                    answers: ["snail", "tail",],
+                    correct: "tail",
+                    image: "tail.png"
+                },
+		 {
+                    question: "Choose the correct word:",
+                    answers: ["brain", "train"],
+                    correct: "brain",
+                    image: "brain.png"
+                },
+		 {
+                    question: "Choose the correct word:",
+                    answers: ["pen", "ten"],
+                    correct: "pen",
+                    image: "pencil.png"
+                }
+	     ];
+	} else if (type === 'fillInTheBlank1') {
+            currentQuiz = [
+                {
+                    question: "Which letters make one sound in the word: fi__?",
+		    answers: ["sh", "fi", "fh"],
+                    correct: "sh",
+                    image: "fish.png"
+                },
+                {
+                    question: "Which letters make one sound in the word: __ild?",
+		    answers: ["ch", "mi"],
+                    correct: "ch",
+                    image: "kid.png"
+                },
+		{
+                    question: "Which letters make one sound in the word: __ree?",
+		    answers: ["t", "th"],
+                    correct: "th",
+                    image: "three.png"
+                },
+		{
+                    question: "Which letter make one sound in the word: h__se",
+		    answers: ["ou", "au"],
+                    correct: "ou",
+                    image: "house.png"
+                },
+		{
+                    question: "Which letter make one sound in the word: b__k?",
+		    answers: ["oo", "uu", "aa"],
+                    correct: "oo",
+                    image: "book.png"
+                },
+		
+            ];
+        
+        } else if (type === 'fillInTheBlank2') {
+            currentQuiz = [
+                {
+                    question: "Say hello to my parents: my mother and my ___.",
+		    answers: ["father", "uncle", "sister", "brother"],
+                    correct: "father",
+                    image: "parents.png"
+                },
+                {
+                    question: "My father has a brother, he is my ___.",
+		    answers: ["dog", "uncle", "father", "brother"],
+                    correct: "uncle",
+                    image: "fatheruncle.jpg"
+                },
+		{
+                    question: "This is my room, I sleep in my ___.",
+		    answers: ["wardrobe", "bathroom", "bed", "chair"],
+                    correct: "bed",
+                    image: "roombed.jpg"
+                },
+		{
+                    question: "I put clothes in my ___.",
+		    answers: ["wardrobe", "sofa", "bed", "chair"],
+                    correct: "wardrobe",
+                    image: "wardrobe.jpg"
+                },
+		{
+                    question: "My mother has a sister, she is my ____.",
+		    answers: ["friend", "aunt", "sister", "grandmother"],
+                    correct: "aunt",
+                    image: "aunt.jpg"
+                },
+		
+            ];
+        } else if (type === 'fillInTheBlank3') {
+            currentQuiz = [
+                {
+                    question: "I ___ two dogs.",
+		    answers: ["have", "with", "am"],
+                    correct: "have",
+                    image: "dogs.png"
+                },
+                {
+                    question: "I am outsite ____ my mother.",
+		    answers: ["she", "with", "what"],
+                    correct: "with",
+                    image: "mother.png"
+                },
+		{
+                    question: "___ is my sister.",
+		    answers: ["he", "she", "they"],
+                    correct: "she",
+                    image: "sister.png"
+                },
+		{
+                    question: "___ is my brother.",
+		    answers: ["she", "he", "him"],
+                    correct: "he",
+                    image: "brother.png"
+                },
+		{
+                    question: "___ are my friend.",
+		    answers: ["I", "You", "he"],
+                    correct: "You",
+                    image: "friend.png"
+                },
+		{
+                    question: "____ is my father.",
+		    answers: ["I", "This", "he"],
+                    correct: "This",
+                    image: "dad.png"
+                },
+		
+            ];
+        } else if (type === 'trueFalse1') {
+            currentQuiz = [
+                {
+                    question: "This is a banana.",
+                    correct: true,
+                    image: "banana.png"
+                },
+                {
+                    question: "This is a cow.",
+                    correct: true,
+                    image: "cow.png"
+                },
+		{
+                    question: "This is a bee.",
+                    correct: false,
+                    image: "snake.png"
+                },
+		{
+                    question: "This is a backpack. ",
+                    correct: true,
+                    image: "backpack.png"
+                },
+		{
+                    question: "This is a snake.",
+                    correct: false,
+                    image: "bee.png"
+                },
+                {
+                    question: "This is a pig.",
+                    correct: true,
+                    image: "pig.png"
+                },
+		{
+                    question: "This is a book.",
+                    correct: false,
+                    image: "pencil.png"
+                },
+		{
+                    question: "This is a pencil. ",
+                    correct: false,
+                    image: "booki.png"
+                }
+            ];
+        } else if (type === 'fillInTheBlank4') {
+            currentQuiz = [
+                {
+                    question: "She needs my city to complete the address. I ___ in Brasov",
+		    answers: ["live", "go", "have"],
+                    correct: "live",
+                    image: "city.png"
+                },
+                {
+                    question: "____ is my dog? I think he is in the house.",
+		    answers: ["Where", "Which", "What"],
+                    correct: "Where",
+                    image: "dog.png"
+                },
+		{
+                    question: "Where is my brother? ___ will arrive soon!",
+		    answers: ["He", "She", "Him"],
+                    correct: "He",
+                    image: "brother.png"
+                },
+		{
+                    question: "Hi, __ am Lukas. Nice to meet you!",
+		    answers: ["I", "is", "me"],
+                    correct: "I",
+                    image: "person.png"
+                },
+		{
+                    question: "___ are you happy? I won!",
+		    answers: ["Why", "What", "When"],
+                    correct: "Why",
+                    image: "smiley.png"
+                },
+		{
+                    question: "____ will you arrive? Soon!",
+		    answers: ["When", "Why", "What"],
+                    correct: "When",
+                    image: "clock.png"
+                },
+		
+            ];
+        } else if (type === 'fillInTheBlank5') {
+            currentQuiz = [
+                {
+                    question: "Today is my _______. I will be 10 years old.",
+		    answers: ["birthday", "holiday", "weekend"],
+                    correct: "birthday",
+                    image: "birthday.png"
+                },
+                {
+                    question: "Tomorrow I will __ with my friends at the cinema.",
+		    answers: ["go", "the", "going"],
+                    correct: "go",
+                    image: "cinema.png"
+                },
+		{
+                    question: "Honey is produced by ____.",
+		    answers: ["bees", "birds", "fish"],
+                    correct: "bees",
+                    image: "honey.png"
+                },
+		{
+                    question: "My dad is driving a ___.",
+		    answers: ["car", "horse", "chicken"],
+                    correct: "car",
+                    image: "car.png"
+                },
+		{
+                    question: "I love reading. I bought a new ____.",
+		    answers: ["car", "book", "cat"],
+                    correct: "book",
+                    image: "book.png"
+                },
+		{
+                    question: "I put clothes in my ______.",
+		    answers: ["wardrobe", "bed", "carpet"],
+                    correct: "wardrobe",
+                    image: "wardrobe.jpg"
+                },
+		
+            ];
+	} else if(type === 'fillInTheBlank6') {
+            currentQuiz = [
+                {
+                    question: "I eat ______ in the morning.",
+                    answers: ["breakfast", "dinner"],
+                    correct: "breakfast",
+                    image: "breakfast.png"
+                },
+                {
+                    question: "Complete the following word: be__d",
+                    answers: ["ar", "er"],
+                    correct: "ar",
+                    image: "beard.png"
+                },
+		{
+                    question: "I sleep in my ___",
+                    answers: ["bed", "wardrobe"],
+                    correct: "bed",
+                    image: "roombed.jpg"
+                },
+		{
+                    question: "I plant flowers in my ____",
+                    answers: ["garden", "bathroom"],
+                    correct: "garden",
+                    image: "garden.png"
+                },
+		 {
+                    question: "I buy fruits from the ________",
+                    answers: ["supermarket", "restaurant"],
+                    correct: "supermarket",
+                    image: "market.png"
+                },
+		 {
+                    question: "I write on paper with a ___",
+                    answers: ["pencil", "carrot"],
+                    correct: "pencil",
+                    image: "pencil.png"
+                }
+	     ];	
+        }
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const questionContainer = document.getElementById('questionContainer');
+        questionContainer.innerHTML = '';
+
+        const questionData = currentQuiz[currentQuestionIndex];
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('question');
+
+        // Display the image
+        const img = document.createElement('img');
+        img.src = questionData.image;
+        questionDiv.appendChild(img);
+
+        if (questionData.answers) { // Multiple Choice
+            questionDiv.innerHTML += `<h3>${questionData.question}</h3>`;
+            questionData.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.onclick = () => checkAnswer(answer, questionData.correct);
+                questionDiv.appendChild(button);
+            });
+        } else if (questionData.correct !== undefined) { // True/False
+            questionDiv.innerHTML += `<h3>${questionData.question}</h3>`;
+            ['True', 'False'].forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.onclick = () => checkAnswer(answer === 'True', questionData.correct);
+                questionDiv.appendChild(button);
+            });
+        } else { // Fill-in-the-Blank
+            questionDiv.innerHTML += `<h3>${questionData.question}</h3>`;
+            const input = document.createElement('input');
+            input.type = 'text';
+            const button = document.createElement('button');
+            button.innerText = 'Submit';
+            button.onclick = () => checkAnswer(input.value.trim(), questionData.correct);
+            questionDiv.appendChild(input);
+            questionDiv.appendChild(button);
+        }
+
+        questionContainer.appendChild(questionDiv);
+    }
+
+    function checkAnswer(selected, correct) {
+        const resultContainer = document.getElementById('result');
+        if (selected === correct) {
+            resultContainer.innerText = "Well done!";
+        } else {
+            resultContainer.innerText = "Wrong! The correct answer is: " + correct;
+        }
+        currentQuestionIndex++;
+        document.getElementById('nextButton').style.display = 'block';
+    }
+
+    function nextQuestion() {
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerText = '';
+        document.getElementById('nextButton').style.display = 'none';
+
+        if (currentQuestionIndex < currentQuiz.length) {
+            showQuestion();
+        } else {
+            resultContainer.innerText = "Quiz Finished!";
+            document.getElementById('quizContainer').style.display = 'none';
+        }
+    }
+</script>
+
+
+</body>
+</html>
