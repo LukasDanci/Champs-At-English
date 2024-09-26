@@ -6,37 +6,40 @@
     <title>Courses & Prices - Champs At English</title>
     <style>
         /* Global Styles */
-       /* Kid-Friendly Colors and Styles */
         body {
-   	     background-color: #AEF359; /* Light purple background */
-   	     color: #333;
-    	     font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
-    	     margin: 0;
-   	     padding: 0;
-    	     background-size: cover;
-    	     background-repeat: no-repeat;
-    	     background-position: center;
-    	     
-	}
+            background-color: #AEF359;
+            color: #333;
+            font-family: 'Comic Sans MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Header Styles */
         header {
-            background-color: #7B1FA2; /* Deep purple header */
+            background-color: #7B1FA2;
             color: white;
             text-align: center;
             padding: 1.5em 0;
-	    
         }
+
+        /* Navigation Styles */
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            background-color: #FF9800; /* Bright orange navigation bar */
+            background-color: #FF9800;
             padding: 10px;
-	    margin: 0;
-	    flex-wrap: wrap;
+            margin: 0;
+            flex-wrap: wrap;
         }
+
         nav ul li {
-            margin: 5px 15px;
+            margin: 5px 10px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -44,122 +47,181 @@
             padding: 10px;
             transition: background-color 0.3s ease;
         }
+
         nav ul li a:hover {
-            background-color: #FFD54F; /* Lighter orange on hover */
+            background-color: #FFD54F;
             color: #333;
             border-radius: 10px;
         }
+
+        /* Section Styles */
         section {
             text-align: center;
-            margin: 50px 20px;
+            margin: 20px 10px;
         }
 
         /* Table Styles */
         table {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
 
         table, th, td {
-            border: 1px solid #7B1FA2; /* Purple border */
+            border: 1px solid #7B1FA2;
         }
 
         th, td {
-            padding: 15px;
+            padding: 10px;
             text-align: left;
+            font-size: 14px;
         }
 
         th {
-            background-color: #7B1FA2; /* Purple table header */
+            background-color: #7B1FA2;
             color: white;
         }
 
         tr:nth-child(even) {
-            background-color: #FFCC80; /* Light orange for even rows */
+            background-color: #FFCC80;
         }
 
         tr:nth-child(odd) {
-            background-color: #FFE0B2; /* Lighter orange for odd rows */
+            background-color: #FFE0B2;
         }
 
         /* Full Package Text Styles */
         .full-package {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #4A148C;
             margin-top: 20px;
         }
 
         /* Footer Styles */
-         footer {
-    background-color: #7B1FA2; /* Same purple as header */
-    color: white;
-    text-align: center;
-    padding: 5px 5px; /* More padding for a balanced look */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-	}
+        footer {
+            background-color: #7B1FA2;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-	footer h3 {
- 	   margin: 10px 0 5px 0; /* Adjust spacing around headings */
-	}
+        footer h3 {
+            margin: 10px 0 5px 0;
+        }
 
-	footer p {
-  	  margin: 5px 0;
-	}
+        footer p {
+            margin: 5px 0;
+        }
 
-	.social-icons {
- 	   display: flex;
-  	  justify-content: center;
-  	  align-items: center;
-  	  margin-top: 10px;
-	}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-	.social-icons a {
-  	  margin: 0 10px;
-   	 transition: transform 0.3s ease;
-	}
+        .social-icons a {
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
 
-	.social-icons a:hover {
- 	   transform: scale(1.1);
-	}
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
 
-	.social-icons img {
-   	 width: 30px;
-   	 height: 30px;
-   	 border-radius: 50%;
-   	 transition: opacity 0.3s ease;
-	}
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+        }
 
-	.social-icons img:hover {
-   	 opacity: 0.8; /* Slight fade on hover */
-	}
-	#languageDropdown {
+        .social-icons img:hover {
+            opacity: 0.8;
+        }
+
+        /* Language Dropdown */
+        #languageDropdown {
             position: absolute;
-            top: 0px;
-            right: 50px;
-	    left: 50px;
-            background-color: translate;
-            padding: 10px;
+            top: 10px;
+            right: 10px;
+            background-color: #FF9800;
+            padding: 5px;
             border-radius: 5px;
         }
-	#languageDropdown select {
+
+        #languageDropdown select {
             padding: 5px;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
-            background-color:#FF9800 ;
+            background-color: #FF9800;
             border: none;
             cursor: pointer;
         }
+
         #languageDropdown select option {
             color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                padding: 5px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            section {
+                margin: 10px 5px;
+            }
+
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .full-package {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1em 0;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            th, td {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 10px 5px;
+            }
+
+            .social-icons img {
+                width: 25px;
+                height: 25px;
+            }
         }
     </style>
 </head>
