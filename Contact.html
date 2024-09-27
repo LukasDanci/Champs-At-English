@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Page - Champs At English</title>
+    <title>Contact Us - Champs At English</title>
     <style>
         /* Global Styles */
         body {
@@ -12,17 +12,23 @@
             font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
             margin: 0;
             padding: 0;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #7B1FA2; /* Deep purple header */
+        /* Header, Main, and Footer Styles */
+        header, main, footer {
+            background-color: #7B1FA2; /* Deep purple for header and footer */
             color: white;
             text-align: center;
             padding: 1.5em 0;
+            flex: 1; /* Makes each section take up equal space */
+        }
+
+        main {
+            background-color: #FF9800; /* Bright orange for the main section */
+            color: #333;
         }
 
         /* Navigation Bar Styles */
@@ -34,12 +40,10 @@
             padding: 10px;
             margin: 0;
             flex-wrap: wrap;
-	    width:100%
         }
 
         nav ul li {
             margin: 5px 15px;
-		
         }
 
         nav ul li a {
