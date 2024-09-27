@@ -6,7 +6,7 @@
     <title>Quiz Time! - Champs At English</title>
     <style>
         /* Global Styles */
-        body {
+         body {
             background-color: #AEF359; 
             color: #333;
             font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
@@ -18,20 +18,13 @@
         }
 
         /* Header, Main, and Footer Styles */
-       header, main, footer {
-    background-color: #7B1FA2; /* Deep purple for header and footer */
-    color: white;
-    text-align: center;
-    padding: 1.5em 0;
-    flex: 1; /* Makes each section take up equal space */
-}
-
-/* Ensure the parent container is a flexbox */
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Makes the container take up the full height of the viewport */
-}
+        header, main, footer {
+            background-color: #7B1FA2; /* Deep purple for header and footer */
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+            flex: 1; /* Makes each section take up equal space */
+        }
 
         main {
             background-color: #FF9800; /* Bright orange for the main section */
@@ -73,39 +66,53 @@
             margin: 50px 20px;
         }
 
-        .quiz-container {
-            background-color: #C8E6C9; /* Light green background for quizzes */
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
+        .course-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        .question {
-            margin-bottom: 20px;
+
+        .course-item {
+            background-color: transparent; /* Light orange course cards */
+            border: 2px solid transparent;
+            margin: 20px;
+            padding: 10px;
+            width: 175px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
+
+        .course-item:hover {
+            transform: scale(1.05);
+            background-color: transparent;
+        }
+
+        /* Button Styles */
         button {
             background-color: #7B1FA2; /* Purple button */
             color: white;
-            padding: 10px 15px;
+            padding: 15px 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
+        .description {
+            display: none;
+            margin-top: 20px;
+            background-color: #FFFF00;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
         button:hover {
             background-color: #4A148C; /* Darker purple on hover */
+            transform: scale(1.1);
         }
-        #result {
-            font-size: 20px;
-            margin-top: 15px;
-        }
-        img {
-            max-width: 100%; /* Responsive image */
-            height: auto;
-            margin-bottom: 15px;
-        }
-	 footer {
+
+        /* Footer Styles */
+        footer {
             background-color: #7B1FA2; /* Same purple as header */
             color: white;
             text-align: center;
@@ -153,7 +160,67 @@
         .social-icons img:hover {
             opacity: 0.8; /* Slight fade on hover */
         }
-	        @media (max-width: 768px) {
+
+        /* Quiz Styles */
+        #quiz {
+            background-color: #FFCC80; /* Light orange background for quiz */
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #388E3C;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        #quiz h2 {
+            margin-bottom: 20px;
+        }
+
+        #quiz button {
+            margin: 5px;
+        }
+
+        #result {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* Animation for feedback messages */
+        #result.correct {
+            color: #388E3C; /* Green for correct */
+            animation: bounce 0.6s ease;
+        }
+
+        #result.wrong {
+            color: #D32F2F; /* Red for wrong */
+            animation: shake 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            75% {
+                transform: translateX(10px);
+            }
+        }
+
+        /* Language Dropdown */
+       
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
             }
@@ -180,10 +247,6 @@
                 padding: 10px 5px;
             }
         }
-	    h2 {
-		    text-align:center;
-	    }
-		    
 
        @media (max-width: 768px) {
             nav ul {
@@ -206,6 +269,36 @@
 
             .full-package {
                 font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1em 0;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            th, td {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 10px 5px;
+            }
+
+            .social-icons img {
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
