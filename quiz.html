@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Time! - Champs At English</title>
+    <title>Quiz Time - Champs At English</title>
+    
     <style>
-        /* Global Styles */
          body {
+        /* Global Styles */
+        body {
             background-color: #AEF359; 
             color: #333;
             font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
             margin: 0;
             padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             height: 10vh;
             display: flex;
             flex-direction: column;
         }
 
+        /* Header Styles */
+        header {
+            background-color: #7B1FA2; /* Deep purple header */
         /* Header, Main, and Footer Styles */
         header, main, footer {
             background-color: #7B1FA2; /* Deep purple for header and footer */
@@ -25,25 +32,21 @@
             padding: 1.5em 0;
             flex: 1; /* Makes each section take up equal space */
         }
-
         main {
             background-color: #FF9800; /* Bright orange for the main section */
             color: #333;
         }
 
         /* Navigation Bar Styles */
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            background-color: #FF9800; /* Bright orange navigation bar */
             padding: 10px;
             margin: 0;
             flex-wrap: wrap;
+	    width: 100%
         }
 
         nav ul li {
             margin: 5px 15px;
+	    
         }
 
         nav ul li a {
@@ -66,53 +69,39 @@
             margin: 50px 20px;
         }
 
-        .course-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .quiz-container {
+            background-color: #C8E6C9; /* Light green background for quizzes */
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
         }
-
-        .course-item {
-            background-color: transparent; /* Light orange course cards */
-            border: 2px solid transparent;
-            margin: 20px;
-            padding: 10px;
-            width: 175px;
-            border-radius: 5px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+        .question {
+            margin-bottom: 20px;
         }
-
-        .course-item:hover {
-            transform: scale(1.05);
-            background-color: transparent;
-        }
-
-        /* Button Styles */
         button {
             background-color: #7B1FA2; /* Purple button */
             color: white;
-            padding: 15px 20px;
+            padding: 10px 15px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease;
+            margin: 5px;
         }
-
-        .description {
-            display: none;
-            margin-top: 20px;
-            background-color: #FFFF00;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
         button:hover {
             background-color: #4A148C; /* Darker purple on hover */
-            transform: scale(1.1);
         }
-
-        /* Footer Styles */
-        footer {
+        #result {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        img {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+            margin-bottom: 15px;
+        }
+	 footer {
             background-color: #7B1FA2; /* Same purple as header */
             color: white;
             text-align: center;
@@ -160,67 +149,7 @@
         .social-icons img:hover {
             opacity: 0.8; /* Slight fade on hover */
         }
-
-        /* Quiz Styles */
-        #quiz {
-            background-color: #FFCC80; /* Light orange background for quiz */
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #388E3C;
-            width: 80%;
-            border-radius: 10px;
-        }
-
-        #quiz h2 {
-            margin-bottom: 20px;
-        }
-
-        #quiz button {
-            margin: 5px;
-        }
-
-        #result {
-            font-size: 20px;
-            margin-top: 15px;
-        }
-
-        /* Animation for feedback messages */
-        #result.correct {
-            color: #388E3C; /* Green for correct */
-            animation: bounce 0.6s ease;
-        }
-
-        #result.wrong {
-            color: #D32F2F; /* Red for wrong */
-            animation: shake 0.6s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-10px);
-            }
-            75% {
-                transform: translateX(10px);
-            }
-        }
-
-        /* Language Dropdown */
-       
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
+	        @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
             }
@@ -247,6 +176,10 @@
                 padding: 10px 5px;
             }
         }
+	    h2 {
+		    text-align:center;
+	    }
+
 
        @media (max-width: 768px) {
             nav ul {
@@ -271,44 +204,14 @@
                 font-size: 14px;
             }
         }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1em 0;
-            }
-
-            nav ul li a {
-                font-size: 16px;
-                padding: 8px;
-            }
-
-            th, td {
-                font-size: 10px;
-                padding: 6px;
-            }
-
-            button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            footer {
-                padding: 10px 5px;
-            }
-
-            .social-icons img {
-                width: 25px;
-                height: 25px;
-            }
-        }
     </style>
 </head>
 <body>
 
 <header>
 	<img src="book.png" alt="Fun Learning Image" style="height: 100px; float: left; margin-right: 15px;">
-	
-    
+
+
     <h1>Champs At English - Quiz time! </h1>
 </header>
 
@@ -334,7 +237,7 @@
     <button onclick="startQuiz('fillInTheBlank4')">Fill in the Blank Quiz #4 - Eighth course </button>
     <button onclick="startQuiz('fillInTheBlank5')">Fill in the Blank Quiz #5 - Nineth course </button>
     <button onclick="startQuiz('fillInTheBlank6')">Fill in the Blank Quiz #6 - Tenth course </button>
-    
+
     <div id="quizContainer" class="quiz-container" style="display: none;">
         <div id="questionContainer"></div>
         <button id="nextButton" style="display: none;" onclick="nextQuestion()">Next</button>
@@ -546,9 +449,9 @@
                     correct: "oo",
                     image: "book.png"
                 },
-		
+
             ];
-        
+
         } else if (type === 'fillInTheBlank2') {
             currentQuiz = [
                 {
@@ -581,7 +484,7 @@
                     correct: "aunt",
                     image: "aunt.jpg"
                 },
-		
+
             ];
         } else if (type === 'fillInTheBlank3') {
             currentQuiz = [
@@ -621,7 +524,7 @@
                     correct: "This",
                     image: "dad.png"
                 },
-		
+
             ];
         } else if (type === 'trueFalse1') {
             currentQuiz = [
@@ -704,7 +607,7 @@
                     correct: "When",
                     image: "clock.png"
                 },
-		
+
             ];
         } else if (type === 'fillInTheBlank5') {
             currentQuiz = [
@@ -744,7 +647,7 @@
                     correct: "wardrobe",
                     image: "wardrobe.jpg"
                 },
-		
+
             ];
 	} else if(type === 'fillInTheBlank6') {
             currentQuiz = [
@@ -855,10 +758,11 @@
             document.getElementById('quizContainer').style.display = 'none';
         }
     }
-	
+
 </script>
 <br>
 	<h2> We hope that you enjoy the time here! </h2>
 
 </body>
+</head>
 </html>
