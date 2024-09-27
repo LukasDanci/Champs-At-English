@@ -213,28 +213,7 @@
         }
 
         /* Language Dropdown */
-        #languageDropdown {
-            position: absolute;
-            top: 0px;
-            right: 50px;
-	    left: 50px;
-            background-color: transparent;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        #languageDropdown select {
-            padding: 5px;
-            font-size: 16px;
-            color: white;
-            background-color: #FF9800;
-            border: none;
-            cursor: pointer;
-        }
-
-        #languageDropdown select option {
-            color: white;
-        }
+       
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -328,16 +307,7 @@
     <h1>Welcome to Champs At English!</h1>
 
 	<!-- Language Dropdown -->
-    <div id="languageDropdown">
-        <select onchange="translatePage(this.value)">
-            <option value="">Select Language</option>
-            <option value="zh-CN">Chinese</option>
-            <option value="ko">Korean</option>
-            <option value="ja">Japanese</option>
-            <option value="vi">Vietnamese</option>
-            <option value="ro">Romanian</option>
-        </select>
-    </div>
+   
 	
 </header>
 
@@ -448,22 +418,6 @@
     }
 </script>
 
-<!-- Google Translate -->
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'ro'}, 'google_translate_element');
-    }
-
-    function translatePage(language) {
-        var googleTranslateElement = document.querySelector('select.goog-te-combo');
-        if (googleTranslateElement) {
-            googleTranslateElement.value = language;
-            googleTranslateElement.dispatchEvent(new Event('change'));
-        }
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 <footer>
