@@ -3,43 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses & Prices - Champs At English</title>
+    <title>Course Page - Champs At English</title>
     <style>
         /* Global Styles */
         body {
-            background-color: #AEF359;
+            background-color: #AEF359; 
             color: #333;
-            font-family: 'Comic Sans MS', sans-serif;
+            font-family: 'Comic Sans MS', sans-serif; /* Fun, kid-friendly font */
             margin: 0;
             padding: 0;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #7B1FA2;
+        /* Header, Main, and Footer Styles */
+        header, main, footer {
+            background-color: #7B1FA2; /* Deep purple for header and footer */
             color: white;
             text-align: center;
             padding: 1.5em 0;
+            flex: 1; /* Makes each section take up equal space */
         }
 
-        /* Navigation Styles */
+        main {
+            background-color: #FF9800; /* Bright orange for the main section */
+            color: #333;
+        }
+
+        /* Navigation Bar Styles */
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            background-color: #FF9800;
+            background-color: #FF9800; /* Bright orange navigation bar */
             padding: 10px;
             margin: 0;
             flex-wrap: wrap;
-		width:100%;
         }
 
         nav ul li {
-            margin: 5px 10px;
-		
+            margin: 5px 15px;
         }
 
         nav ul li a {
@@ -51,7 +55,7 @@
         }
 
         nav ul li a:hover {
-            background-color: #FFD54F;
+            background-color: #FFD54F; /* Lighter orange on hover */
             color: #333;
             border-radius: 10px;
         }
